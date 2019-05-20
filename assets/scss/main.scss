@@ -1,0 +1,13 @@
+/**
+* MAIN SCSS FILE, here all sass base partials are * merged into one file with all mixins and variables
+*/
+body, html {
+    font-family: Verdana, sans-serif;
+}
+.fonts-loaded body {
+    font-family: 'Archivo','PlayfairDisplay', Verdana, sans-serif;
+}
+@import './base/colors';
+@import './base/queries';
+
+

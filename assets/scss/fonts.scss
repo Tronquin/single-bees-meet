@@ -1,0 +1,19 @@
+@font-face {
+    font-family: 'Archivo';
+    src: url('../fonts/Archivo/archivo-regular.woff2') format('woff2'),
+         url('../fonts/Archivo/archivo-regular.woff') format('woff'),
+         url('../fonts/Archivo/archivo-regular.ttf') format('truetype');
+         font-style: normal;
+         font-weight: 400;
+         font-display: swap; 
+}
+
+@font-face {
+    font-family: 'PlayfairDisplay';
+    src: url('../fonts/PlayfairDisplay/playfairdisplay-regular.woff2') format('woff2'),
+         url('../fonts/PlayfairDisplay/playfairdisplay-regular.woff') format('woff'),
+         url('../fonts/PlayfairDisplay/playfairdisplay-regular.ttf') format('truetype');
+         font-style: normal;
+         font-weight: 400;
+         font-display: swap; 
+}
