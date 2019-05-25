@@ -1,8 +1,9 @@
 <template>
   <div class="index">
-    <Navbar></Navbar>
+    <Navbar />
     <section class="section-index">
-      <h1>BEES ARE COOL!</h1>
+      <h1 class="header-title">Wanna Pollinate?</h1>
+      <h4 class="sub-title"></h4>
     </section>
   </div>
 </template>
@@ -16,30 +17,29 @@ export default {
     Navbar
   },
   mounted() {
-    const Archivo = new FontFaceObserver('Archivo')
     const PlayfairDisplay = new FontFaceObserver('PlayfairDisplay')
+    const SourceSans = new FontFaceObserver('SourceSans')
     const html = document.documentElement
-    Archivo.load()
-      .then(function() {
+    SourceSans.load()
+      .then(function () {
         html.classList.remove('fonts-loading')
         html.classList.add('fonts-loaded')
         sessionStorage.fontsLoaded = true
-        console.log('Archivo has loaded.')
+        console.log('SourceSans has loaded.')
       })
-      .catch(function() {
+      .catch(function () {
         html.classList.remove('fonts-loading')
         html.classList.add('fonts-failed')
         sessionStorage.fontsLoaded = false
       })
-
     PlayfairDisplay.load()
-      .then(function() {
+      .then(function () {
         html.classList.remove('fonts-loading')
         html.classList.add('fonts-loaded')
         sessionStorage.fontsLoaded = true
         console.log('PlayfairDisplay has loaded.')
       })
-      .catch(function() {
+      .catch(function () {
         html.classList.remove('fonts-loading')
         html.classList.add('fonts-failed')
         sessionStorage.fontsLoaded = false
@@ -53,17 +53,19 @@ export default {
 </script>
 
 <style lang="scss">
+@import "~/assets/scss/main.scss";
 .section-index {
   width: 100vw;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: black;
-  color: pink;
-  h1 {
-    font-family: 'PlayfairDisplay';
+  .header-title {
+    font-family: "PlayfairDisplay";
     font-size: 5em;
+    color: $sunflower-black;
+    letter-spacing: 4px;
+    text-transform: uppercase;
   }
 }
 </style>

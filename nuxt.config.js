@@ -24,10 +24,11 @@ module.exports = {
   /*
    ** Global CSS
    */
-  css:
-    [{ src: '~/assets/scss/main.scss', lang: 'scss' },
+  css: [
+    { src: '~/assets/scss/main.scss', lang: 'scss' },
     { src: '~/assets/scss/reset.scss', lang: 'scss' },
-    { src: '~/assets/scss/fonts.scss', lang: 'scss' }],
+    { src: '~/assets/scss/fonts.scss', lang: 'scss' }
+  ],
   /*
    ** Plugins to load before mounting the App
    */
@@ -39,8 +40,13 @@ module.exports = {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/pwa'
+    '@nuxtjs/pwa',
+    '@nuxtjs/workbox'
   ],
+  workbox: {
+    // Workbox options
+    dev: true
+  },
   /*
    ** Axios module configuration
    */

@@ -3,9 +3,11 @@
 */
 body, html {
     font-family: Verdana, sans-serif;
+    letter-spacing: 1.2px;
+    background-image: linear-gradient(to right top, #dfb539, #e4af34, #e9a830, #eda12e, #f29a2d);
 }
 .fonts-loaded body {
-    font-family: 'Archivo','PlayfairDisplay', Verdana, sans-serif;
+    font-family: 'SourceSans','PlayfairDisplay', Verdana, sans-serif;
 }
 @import './base/colors';
 @import './base/queries';
