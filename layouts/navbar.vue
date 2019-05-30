@@ -1,28 +1,31 @@
 <template>
   <header>
-    <div class="logo-container">
-      <span>Single</span>
-      <img src="../assets/images/tyler's bee cropped.png" alt="bee-logo" class="logo">
-      <span>Meet</span>
-    </div>
-    <nav class="nav">
-      <ul class="nav__links">
-        <li>
-          <a href="#">About</a>
-        </li>
-        <li>
-          <a href="#">Resources</a>
-        </li>
-        <li>
-          <a href="#">Dating</a>
-        </li>
-        <li>
-          <a href="#">Contact</a>
-        </li>
-      </ul>
-    </nav>
-    <div class="menu-toggle">
-      <div class="menu-toggle__hamburger"></div>
+    <div class="navbar-wrapper">
+      <div class="logo-container">
+        <span>Single</span>
+        <!-- <img src="../assets/images/tyler's bee cropped.png" alt="bee-logo" class="logo"> -->
+        <span>Bees</span>
+        <span>Meet</span>
+      </div>
+      <nav class="nav">
+        <ul class="nav__links">
+          <li>
+            <a href="#">Dating</a>
+          </li>
+          <li>
+            <a href="#">About</a>
+          </li>
+          <li>
+            <a href="#">Resources</a>
+          </li>
+          <li>
+            <a href="#">Contact</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="menu-toggle">
+        <div class="menu-toggle__hamburger" />
+      </div>
     </div>
   </header>
 </template>
@@ -44,6 +47,7 @@ export default {
 
 <style lang="scss">
 @import "~/assets/scss/main.scss";
+
 header {
   display: flex;
   justify-content: space-between;
@@ -55,6 +59,16 @@ header {
     //content: '';
     clear: both;
     display: block;
+  }
+  .navbar-wrapper {
+    max-width: 1260px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 0 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
   .logo-container {
     margin-left: 1.75em;
@@ -168,8 +182,12 @@ header {
         li {
           border-bottom: none;
           a {
-            padding: 0 1.5em;
+            padding: 0 0 0 4em;
             color: $sunflower-yellow;
+            &:hover {
+              background: $sunflower-black;
+              color: $sunflower-yellow-dark;
+            }
           }
         }
       }

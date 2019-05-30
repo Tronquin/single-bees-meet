@@ -9,6 +9,13 @@ body, html {
 .fonts-loaded body {
     font-family: 'SourceSans','PlayfairDisplay', Verdana, sans-serif;
 }
+.wrapper {
+  margin-right: auto;
+  margin-left:  auto;
+  max-width: 1260px;
+  padding-right: 10px;
+  padding-left:  10px;
+}
 @import './base/colors';
 @import './base/queries';
 
