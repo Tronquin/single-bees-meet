@@ -15,11 +15,11 @@ export default {
 <style lang="scss">
 @import "~/assets/scss/main.scss";
 footer {
-    background: $sunflower-black;
-    color: $sunflower-yellow;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 14vh;
+  background: $sunflower-black;
+  color: $sunflower-yellow;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 8vh;
 }
 </style>

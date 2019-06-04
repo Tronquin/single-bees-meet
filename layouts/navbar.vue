@@ -3,7 +3,6 @@
     <div class="navbar-wrapper">
       <div class="logo-container">
         <span>Single</span>
-        <!-- <img src="../assets/images/tyler's bee cropped.png" alt="bee-logo" class="logo"> -->
         <span>Bees</span>
         <span>Meet</span>
       </div>
@@ -61,7 +60,7 @@ header {
     display: block;
   }
   .navbar-wrapper {
-    max-width: 1260px;
+    max-width: 1460px;
     margin-right: auto;
     margin-left: auto;
     padding: 0 10px;
@@ -74,20 +73,20 @@ header {
     margin-left: 1.75em;
     display: flex;
     align-items: center;
+    flex-flow: column wrap;
     justify-content: space-around;
-    width: 12em;
-    color: $sunflower-yellow;
     cursor: pointer;
     span {
-      font-family: 'SourceSansBold';
-      font-size: 1.4em;
+      font-family: "SourceSansBold";
+      font-size: 1.2em;
+      color: $sunflower-yellow;
     }
     .logo {
       width: 3.5em;
     }
-    &:hover {
-      color: $sunflower-yellow-dark;
-    }
+    // &:hover {
+    //   color: $sunflower-yellow-dark;
+    // }
   }
   .nav {
     width: 100%;
@@ -101,16 +100,18 @@ header {
       li {
         border-bottom: 1px solid $sunflower-yellow;
         a {
+          font-size: 1em;
           text-transform: uppercase;
           text-decoration: none;
           text-align: center;
           padding: 2em 6em;
           display: block;
           color: $sunflower-yellow;
-          &:hover, &:focus {
-            color: $sunflower-black;
-            background: $sunflower-yellow-dark;
-          }
+          // &:hover,
+          // &:focus {
+          //   color: $sunflower-black;
+          //   background: $sunflower-yellow-dark;
+          // }
         }
 
         &:last-child {
@@ -127,13 +128,13 @@ header {
   .menu-toggle {
     padding: 1em;
     position: absolute;
-    right: .75em;
+    right: 0.75em;
     cursor: pointer;
 
     &__hamburger,
     &__hamburger::before,
     &__hamburger::after {
-      content: '';
+      content: "";
       display: block;
       background: $sunflower-yellow;
       height: 3px;
@@ -150,25 +151,29 @@ header {
       transform: translateY(5px);
     }
 
-    .open{
+    .open {
       transform: rotate(45deg);
     }
 
-    .open::before{
+    .open::before {
       opacity: 0;
     }
 
-    .open::after{
+    .open::after {
       transform: rotate(-90deg) translate(3px);
     }
   }
 }
 
-@include for-tablet-portrait-up  {
+@include for-tablet-portrait-up {
   header {
+    background: none;
     justify-content: space-around;
     .logo-container {
       margin-left: unset;
+      span {
+        color: $sunflower-black;
+      }
     }
     .nav {
       height: auto;
@@ -183,11 +188,11 @@ header {
           border-bottom: none;
           a {
             padding: 0 0 0 4em;
-            color: $sunflower-yellow;
-            &:hover {
-              background: $sunflower-black;
-              color: $sunflower-yellow-dark;
-            }
+            color: $sunflower-black;
+            // &:hover {
+            //   background: $sunflower-black;
+            //   color: $sunflower-yellow-dark;
+            // }
           }
         }
       }

@@ -1,21 +1,5 @@
 <template>
-  <div class="form">
-    <div class="what-are-you">
-      <div class="what-are-you__iAm">
-        <span>I am a</span>
-        <input id="bee" type="checkbox" name="bee">
-        <input id="flower" type="checkbox" name="flower">
-      </div>
-      <div class="what-are-you__seekingA">
-        <span>Seeking a</span>
-        <input id="bee" type="checkbox" name="bee">
-        <input id="flower" type="checkbox" name="flower">
-      </div>
-    </div>
-    <button type="submit" class="submit-btn">
-      Let's Go!
-    </button>
-  </div>
+  <div />
 </template>
 
 <script>

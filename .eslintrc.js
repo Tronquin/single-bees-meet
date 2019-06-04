@@ -9,6 +9,7 @@ module.exports = {
   },
   extends: ['@nuxtjs', 'plugin:nuxt/recommended'],
   rules: {
-    'no-console': 0
+    'no-console': 0,
+    'singlequote': false
   }
 }
