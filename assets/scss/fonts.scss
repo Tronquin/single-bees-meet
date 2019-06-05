@@ -1,17 +1,8 @@
 @font-face {
     font-family: 'SourceSans';
-    src: url('../fonts/SourceSans/sourcesanspro-regular-webfont.woff2') format('woff2'),
-         url('../fonts/SourceSans/sourcesanspro-regular-webfont.woff') format('woff'),
-         url('../fonts/SourceSans/sourcesanspro-regular-webfont.ttf') format('truetype');
-         font-style: normal;
-         font-weight: 400;
-         font-display: swap; 
-}
-
-@font-face {
-    font-family: 'SourceSansLight';
-    src: url('../fonts/SourceSans/sourcesanspro-light-webfont.woff2') format('woff2'),
-         url('../fonts/SourceSans/sourcesanspro-light-webfont.woff') format('woff');
+    src: url('../fonts/SourceSans/sourcesanspro-regular.woff2') format('woff2'),
+         url('../fonts/SourceSans/sourcesanspro-regular.woff') format('woff'),
+         url('../fonts/SourceSans/sourcesanspro-regular.ttf') format('truetype');
          font-style: normal;
          font-weight: 400;
          font-display: swap; 
@@ -19,9 +10,18 @@
 
 @font-face {
     font-family: 'SourceSansBold';
-    src: url('../fonts/SourceSans/sourcesanspro-bold-webfont.woff2') format('woff2'),
-         url('../fonts/SourceSans/sourcesanspro-bold-webfont.woff') format('woff'),
-         url('../fonts/SourceSans/sourcesanspro-bold-webfont.ttf') format('truetype');
+    src: url('../fonts/SourceSans/sourcesanspro-bold.woff2') format('woff2'),
+         url('../fonts/SourceSans/sourcesanspro-bold.woff') format('woff'),
+         url('../fonts/SourceSans/sourcesanspro-regular.ttf') format('truetype');
+         font-style: normal;
+         font-weight: 400;
+         font-display: swap; 
+}
+@font-face {
+    font-family: 'SourceSansLight';
+    src: url('../fonts/SourceSans/sourcesanspro-light.woff2') format('woff2'),
+         url('../fonts/SourceSans/sourcesanspro-light.woff') format('woff'),
+         url('../fonts/SourceSans/sourcesanspro-regular.ttf') format('truetype');
          font-style: normal;
          font-weight: 400;
          font-display: swap; 
@@ -31,6 +31,16 @@
     font-family: 'PlayfairDisplay';
     src: url('../fonts/PlayfairDisplay/playfairdisplay-regular.woff2') format('woff2'),
          url('../fonts/PlayfairDisplay/playfairdisplay-regular.woff') format('woff'),
+         url('../fonts/PlayfairDisplay/playfairdisplay-regular.ttf') format('truetype');
+         font-style: normal;
+         font-weight: 400;
+         font-display: swap; 
+}
+
+@font-face {
+    font-family: 'PlayfairDisplayBold';
+    src: url('../fonts/PlayfairDisplay/playfairdisplay-bold.woff2') format('woff2'),
+         url('../fonts/PlayfairDisplay/playfairdisplay-bold.woff') format('woff'),
          url('../fonts/PlayfairDisplay/playfairdisplay-regular.ttf') format('truetype');
          font-style: normal;
          font-weight: 400;

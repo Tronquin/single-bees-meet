@@ -3,54 +3,36 @@
     <Navbar />
     <div class="wrapper">
       <section class="wrapper-landing">
-        <div class="headline">
+        <div class="left-side-container">
           <h1>
             Wanna
             <br>Polli
             <br>nate?
           </h1>
           <p>This is a dating site for bees and flowers of all sorts, meet your honey right now!</p>
+          <button class="btn-dating">
+            Start Dating
+          </button>
         </div>
-        <div class="whatAreYou">
-          <WhatAreYou />
-        </div>
-        <div class="imageSlide" />
-      </section>
-      <Facts />
-      <section class="wrapper-resources">
-        <div class="background-blue">
-          <h2>We Need Help</h2>
-          <img src="../assets/images/tyler's bee cropped.png" alt="bee">
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem.</p>
-          <button>Help Us</button>
-        </div>
-      </section>
-      <Facts />
-      <section class="wrapper-about">
-        <div class="background-repeat">
-          <h2>Learn About Us</h2>
-          <div class="background-dark">
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem.
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic.
-            </p>
+        <div class="slides-container">
+          <div class="slides">
+            <div class="slides-1" />
+            <div class="slides-2" />
+            <div class="slides-3" />
           </div>
-          <button>Learn More</button>
         </div>
       </section>
       <Facts />
-      <section class="wrapper-contact">
-        <div class="contactFormContainer">
-          <ContactForm />
-        </div>
-        <div class="honey-container">
-          <h2>Honey</h2>
-          <h2>Honey</h2>
-          <h2>Honey</h2>
-        </div>
-        <div class="sunflower">
-          <img src="../assets/images/sunflower-of-pablo.png" alt="sunflower">
-        </div>
+      <section class="wrapper-whatAreYou">
+        <WhatAreYou />
+      </section>
+      <Facts />
+      <section class="wrapper-dating">
+        <Dating />
+      </section>
+      <Facts />
+      <section class="wrapper-match">
+        <Match />
       </section>
     </div>
     <Footer />
@@ -61,8 +43,9 @@
 import FontFaceObserver from 'fontfaceobserver'
 import Navbar from '../layouts/navbar'
 import WhatAreYou from '../components/WhatAreYou'
+import Dating from '../components/Dating'
+import Match from '../components/Match'
 import Facts from '../components/Facts'
-import ContactForm from '../components/ContactForm'
 import Footer from '../layouts/footer'
 
 export default {
@@ -70,13 +53,17 @@ export default {
   components: {
     Navbar,
     WhatAreYou,
+    Dating,
+    Match,
     Facts,
-    ContactForm,
     Footer
   },
   mounted() {
     const PlayfairDisplay = new FontFaceObserver('PlayfairDisplay')
     const SourceSans = new FontFaceObserver('SourceSans')
+    const PlayfairDisplayBold = new FontFaceObserver('PlayfairDisplayBold')
+    const SourceSansLight = new FontFaceObserver('SourceSansLight')
+    const SourceSansBold = new FontFaceObserver('SourceSansBold')
     const html = document.documentElement
     SourceSans.load()
       .then(function () {
@@ -84,6 +71,12 @@ export default {
         html.classList.add('fonts-loaded')
         sessionStorage.fontsLoaded = true
         console.log('SourceSans has loaded.')
+        SourceSansLight.load().then(() => {
+          console.log('SourceSansLight Has Loaded')
+        })
+        SourceSansBold.load().then(() => {
+          console.log('SourceSansBold Has Loaded')
+        })
       })
       .catch(function () {
         html.classList.remove('fonts-loading')
@@ -96,6 +89,9 @@ export default {
         html.classList.add('fonts-loaded')
         sessionStorage.fontsLoaded = true
         console.log('PlayfairDisplay has loaded.')
+        PlayfairDisplayBold.load().then(() => {
+          console.log('PlayfairDisplayBold has loaded')
+        })
       })
       .catch(function () {
         html.classList.remove('fonts-loading')
@@ -115,35 +111,97 @@ export default {
 
 .wrapper {
   &-landing {
-    height: 90vh;
+    margin: 2em 0;
+    height: 100vh;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    grid-template-areas: "headline image" "whatAreYou image";
-    .headline {
+    grid-template-rows: 0;
+    grid-template-areas: "headline image" "headline image";
+    .left-side-container {
       grid-area: headline;
-      h1 {
-        font-family: "PlayfairDisplay";
-        font-size: 8em;
-        color: $sunflower-black;
-        text-transform: uppercase;
+      display: flex;
+      flex-flow: column wrap;
+      justify-content: space-around;
+        h1 {
+          font-family: "PlayfairDisplayBold";
+          font-size: 7.5em;
+          letter-spacing: 10px;
+          color: $sunflower-black;
+          text-transform: uppercase;
+        }
+        p {
+          font-family: "SourceSansLight";
+          font-size: 2em;
+          color: $sunflower-black;
+          width: 65%;
+        }
+        .btn-dating {
+          width: 50%;
+          padding: 1em;
+          border-radius: 50px;
+          background-color: $sunflower-blue;
+          border: none;
+          outline: none;
+          font-family: 'SourceSansBold';
+          font-size: 1.2em;
+          cursor: pointer;
+        }
+    }
+    .slides-container {
+        grid-area: image;
+        background-color: $sunflower-blue;
+      .slides {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        border-radius: 50px;
+        background-color: transparent;
+        &-1,&-2,&-3 {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+        }
+
+        &-1 {
+          background: url('../assets/images/main-bee.png') no-repeat center;
+          animation: fade 8s infinite ease-in-out;
+        }
+
+        &-2 {
+          background: url('../assets/images/main-sunflower.png') no-repeat center;
+          background-size: 80%;
+          animation: fade2 8s infinite ease-in-out;
+        }
+
+        &-3 {
+          background: url('../assets/images/wory-bee.png') no-repeat center;
+          background-size: cover;
+          animation: fade3 8s infinite ease-in-out;
+        }
+        @keyframes fade
+        {
+          0%   {opacity:1}
+          33.333% { opacity: 0}
+          66.666% { opacity: 0}
+          100% { opacity: 1}
+        }
+        @keyframes fade2
+        {
+          0%   {opacity:0}
+          33.333% { opacity: 1}
+          66.666% { opacity: 0 }
+          100% { opacity: 0}
+        }
+        @keyframes fade3
+        {
+          0%   {opacity:0}
+          33.333% { opacity: 0}
+          66.666% { opacity: 1}
+          100% { opacity: 0}
+        }
       }
-      p {
-        font-family: "SourceSans";
-        font-size: 2.5em;
-        color: $sunflower-black;
-        width: 65%;
-      }
     }
-    .whatAreYou {
-      grid-area: whatAreYou;
-    }
-    .imageSlide {
-      grid-area: image;
-      width: 100%;
-      height: 100%;
-      background-color: $sunflower-blue;
-    }
+
   }
 }
 

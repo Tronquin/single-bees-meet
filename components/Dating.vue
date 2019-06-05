@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: 'ImageSlider'
+  name: 'Dating'
 }
 </script>
 
