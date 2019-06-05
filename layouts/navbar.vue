@@ -60,7 +60,7 @@ header {
     display: block;
   }
   .navbar-wrapper {
-    max-width: 1460px;
+    max-width: 1160px;
     margin-right: auto;
     margin-left: auto;
     padding: 0 10px;
