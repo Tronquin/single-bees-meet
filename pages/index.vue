@@ -133,7 +133,7 @@ export default {
           font-family: "SourceSansLight";
           font-size: 2em;
           color: $sunflower-black;
-          width: 65%;
+          width: 80%;
         }
         .btn-dating {
           width: 50%;
@@ -145,6 +145,8 @@ export default {
           font-family: 'SourceSansBold';
           font-size: 1.2em;
           cursor: pointer;
+          color: $sunflower-black;
+          text-transform: uppercase;
         }
     }
     .slides-container {
@@ -201,10 +203,18 @@ export default {
         }
       }
     }
-
   }
 }
 
+@include for-tablet-landscape-up {
+  .wrapper {
+    max-width: 960px;
+    &-landing {
+      grid-template-columns: 1fr;
+      grid-template-areas: "headline" "image"
+    }
+  }
+}
 @include for-tablet-landscape-up {
 }
 </style>
