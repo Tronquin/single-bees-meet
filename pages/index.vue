@@ -112,7 +112,6 @@ export default {
 .wrapper {
   &-landing {
     margin: 2em 0;
-    height: 100vh;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 0;
@@ -122,84 +121,114 @@ export default {
       display: flex;
       flex-flow: column wrap;
       justify-content: space-around;
-        h1 {
-          font-family: "PlayfairDisplayBold";
-          font-size: 7.5em;
-          letter-spacing: 10px;
-          color: $sunflower-black;
-          text-transform: uppercase;
+      h1 {
+        font-family: "PlayfairDisplayBold";
+        font-size: 7.5em;
+        letter-spacing: 10px;
+        color: $sunflower-black;
+        text-transform: uppercase;
+      }
+      p {
+        margin-top: 1.5em;
+        font-family: "SourceSansLight";
+        font-size: 2em;
+        color: $sunflower-black;
+        width: 80%;
+      }
+      .btn-dating {
+        margin-top: 2em;
+        width: 50%;
+        padding: 1em;
+        border-radius: 50px;
+        background-color: $sunflower-blue;
+        border: none;
+        outline: none;
+        font-family: "SourceSansBold";
+        font-size: 1.2em;
+        cursor: pointer;
+        color: $sunflower-black;
+        text-transform: uppercase;
+        transition: 0.2s background-color ease-in-out;
+        &:hover {
+          background-color: $sunflower-orange;
         }
-        p {
-          font-family: "SourceSansLight";
-          font-size: 2em;
-          color: $sunflower-black;
-          width: 80%;
-        }
-        .btn-dating {
-          width: 50%;
-          padding: 1em;
-          border-radius: 50px;
-          background-color: $sunflower-blue;
-          border: none;
-          outline: none;
-          font-family: 'SourceSansBold';
-          font-size: 1.2em;
-          cursor: pointer;
-          color: $sunflower-black;
-          text-transform: uppercase;
-        }
+      }
     }
     .slides-container {
-        grid-area: image;
-        background-color: $sunflower-blue;
+      grid-area: image;
+      background-color: $sunflower-blue;
       .slides {
         position: relative;
         width: 100%;
         height: 100%;
         border-radius: 50px;
         background-color: transparent;
-        &-1,&-2,&-3 {
+        &-1,
+        &-2,
+        &-3 {
           position: absolute;
           width: 100%;
           height: 100%;
         }
 
         &-1 {
-          background: url('../assets/images/main-bee.png') no-repeat center;
+          background: url("../assets/images/main-bee.png") no-repeat center;
           animation: fade 8s infinite ease-in-out;
         }
 
         &-2 {
-          background: url('../assets/images/main-sunflower.png') no-repeat center;
+          background: url("../assets/images/main-sunflower.png") no-repeat
+            center;
           background-size: 80%;
           animation: fade2 8s infinite ease-in-out;
         }
 
         &-3 {
-          background: url('../assets/images/wory-bee.png') no-repeat center;
+          background: url("../assets/images/wory-bee.png") no-repeat center;
           background-size: cover;
           animation: fade3 8s infinite ease-in-out;
         }
-        @keyframes fade
-        {
-          0%   {opacity:1}
-          33.333% { opacity: 0}
-          66.666% { opacity: 0}
-          100% { opacity: 1}
+        @keyframes fade {
+          0% {
+            opacity: 1;
+          }
+          33.333% {
+            opacity: 0;
+          }
+          66.666% {
+            opacity: 0;
+          }
+          100% {
+            opacity: 1;
+          }
         }
-        @keyframes fade2
-        {
-          0%   {opacity:0}
-          33.333% { opacity: 1}
-          66.666% { opacity: 0 }
-          100% { opacity: 0}
+        @keyframes fade2 {
+          0% {
+            opacity: 0;
+          }
+          33.333% {
+            opacity: 1;
+          }
+          66.666% {
+            opacity: 0;
+          }
+          100% {
+            opacity: 0;
+          }
         }
-        @keyframes fade3
-        {
-          0%   {opacity:0}
-          33.333% { opacity: 0}
-          66.666% { opacity: 1}
-          100% { opacity: 0}
+        @keyframes fade3 {
+          0% {
+            opacity: 0;
+          }
+          33.333% {
+            opacity: 0;
+          }
+          66.666% {
+            opacity: 1;
+          }
+          100% {
+            opacity: 0;
+          }
         }
       }
     }
@@ -211,7 +240,7 @@ export default {
     max-width: 960px;
     &-landing {
       grid-template-columns: 1fr;
-      grid-template-areas: "headline" "image"
+      grid-template-areas: "headline" "image";
     }
   }
 }

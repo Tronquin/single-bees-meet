@@ -1,5 +1,17 @@
 <template>
-  <div />
+  <div class="whatAreYou">
+    <h2>What Are You?</h2>
+    <div class="choice-container">
+      <div class="option">
+        <div class="hexagon" />
+        <img src="../assets/images/main-bee.png" alt="bee.choice" class="bee">
+      </div>
+      <div class="option">
+        <div class="hexagon" />
+        <img src="../assets/images/main-sunflower.png" alt="sunflower.choice" class="flower">
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -10,40 +22,54 @@ export default {
 
 <style lang="scss">
 @import "~/assets/scss/main.scss";
-.form {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  height: 75%;
-  width: 35%;
-  border-radius: 50px;
-  background: white;
-  flex-flow: column wrap;
-  color: $sunflower-yellow;
-  .text-container {
+.whatAreYou {
+  h2 {
+    font-family: "PlayfairDisplayBold";
+    font-size: 5em;
+    letter-spacing: 10px;
+    color: $sunflower-black;
+    text-transform: uppercase;
     text-align: center;
-    display: flex;
-    justify-content: center;
-    flex-flow: row wrap;
-    .form-header {
-      font-size: 2em;
-      margin-bottom: 0.2em;
-    }
-    .form-subtitle {
-      font-size: 1.2em;
-      margin-bottom: 1em;
-    }
-    .dotted-divider {
-      width: 90%;
-      border: 1px dashed $sunflower-yellow;
-    }
   }
-
-  .what-are-you {
+  .choice-container {
+    margin-top: 2.5em;
     display: flex;
-    justify-content: space-around;
-    width: 100%;
-    font-size: 1.2em;
+    justify-content: space-between;
+    align-items: center;
+    .hexagon {
+      position: relative;
+      width: 450px;
+      height: 259.81px;
+      background-color: $sunflower-orange;
+      margin: 129.9px 0;
+    }
+
+    .hexagon:before,
+    .hexagon:after {
+      content: "";
+      position: absolute;
+      width: 0;
+      border-left: 225px solid transparent;
+      border-right: 225px solid transparent;
+    }
+
+    .hexagon:before {
+      bottom: 100%;
+      border-bottom: 129.9px solid $sunflower-orange;
+    }
+
+    .hexagon:after {
+      top: 100%;
+      width: 0;
+      border-top: 129.9px solid $sunflower-orange;
+    }
+    .bee {
+      position: absolute;
+    }
+    .flower {
+      width: 25em;
+      position: absolute;
+    }
   }
 }
 </style>
