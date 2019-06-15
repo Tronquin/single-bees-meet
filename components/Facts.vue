@@ -1,9 +1,11 @@
 <template>
   <div class="facts">
-    <p v-for="(fact, index) in facts" :key="index">
-      Bee Fact #{{ index }}:
-      <span>"{{ fact }}"</span>
-    </p>
+    <div v-for="(fact, index) in facts" :key="index" class="fact">
+      <p>
+        Bee Fact #{{ index }}:
+        <span>"{{ fact }}"</span>
+      </p>
+    </div>
   </div>
 </template>
 
