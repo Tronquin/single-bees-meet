@@ -4,12 +4,12 @@
     <div class="choice-container">
       <div class="option">
         <div class="hexagon-orange">
-          <img src="../assets/images/main-bee.png" alt="bee.choice" class="bee">
+            <img v-lazy="`img/${bee}`"  alt="bee.choice" class="bee">
         </div>
       </div>
       <div class="option">
         <div class="hexagon-blue">
-          <img src="../assets/images/main-sunflower.png" alt="sunflower.choice" class="flower">
+            <img v-lazy="`img/${flower}`" alt="sunflower.choice" class="flower">
         </div>
       </div>
     </div>
@@ -18,7 +18,13 @@
 
 <script>
 export default {
-  name: 'WhatAreYou'
+  name: 'WhatAreYou',
+  data() {
+    return {
+      bee: 'main-bee.png',
+      flower: 'main-sunflower.png'
+    }
+  }
 }
 </script>
 

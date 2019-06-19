@@ -172,19 +172,19 @@ export default {
         }
 
         &-1 {
-          background: url("../assets/images/main-bee.png") no-repeat center;
+          background: url("../static/img/main-bee.png") no-repeat center;
           animation: fade 8s infinite ease-in-out;
         }
 
         &-2 {
-          background: url("../assets/images/main-sunflower.png") no-repeat
+          background: url("../static/img/main-sunflower.png") no-repeat
             center;
           background-size: 80%;
           animation: fade2 8s infinite ease-in-out;
         }
 
         &-3 {
-          background: url("../assets/images/wory-bee.png") no-repeat center;
+          background: url("../static/img/bee-draw-01.png") no-repeat center;
           background-size: cover;
           animation: fade3 8s infinite ease-in-out;
         }

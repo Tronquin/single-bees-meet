@@ -1,8 +1,16 @@
+/* eslint-disable nuxt/no-cjs-in-config */
+const TerserJSPlugin = require('terser-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const pkg = require('./package')
 
 module.exports = {
   mode: 'universal',
-
+  render: {
+    bundleRenderer: {
+      shouldPrefetch: (file, type) => ['script', 'style', 'font'].includes(type)
+    }
+  },
   /*
    ** Headers of the page
    */
@@ -32,7 +40,9 @@ module.exports = {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: [
+    { src: '~/plugins/VueLazy.js', ssr: false }
+  ],
 
   /*
    ** Nuxt.js modules
@@ -41,7 +51,17 @@ module.exports = {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
-    '@nuxtjs/workbox'
+    '@nuxtjs/workbox',
+    ['nuxt-fontawesome', {
+      component: 'fa',
+      imports: [
+        {
+          set: '@fortawesome/free-solid-svg-icons',
+          icons: ['fas']
+        }
+      ]
+    }]
+
   ],
   workbox: {
     // Workbox options
@@ -59,9 +79,53 @@ module.exports = {
    */
   build: {
     /*
-     ** You can extend webpack config here
-     */
+    ** You can extend webpack config here
+    */
+    analyze: true,
+    plugins: [
+      new MiniCssExtractPlugin({
+        filename: 'style.css',
+        chunkFilename: '[name].css'
+      })
+    ],
+    module: {
+      rules: [{
+        test: /\.scss$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              sourceMap: true,
+              importLoader: 2
+            }
+          },
+          'postcss-loader',
+          'sass-loader'
+        ]
+      }
+      ]
+    },
+    optimization: {
+      splitChunks: {
+        name: true,
+        chunks: 'all',
+        cacheGroups: {
+          styles: {
+            name: 'styles',
+            test: /\.s?css$/,
+            chunks: 'all',
+            minChunks: 1,
+            reuseExistingChunk: true,
+            enforce: true
+          }
+        }
+      },
+      minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})]
+    },
     extend(config, ctx) {
+      config.node = { fs: 'empty' }
       // Run ESLint on save
       if (ctx.isDev && ctx.isClient) {
         config.module.rules.push({
