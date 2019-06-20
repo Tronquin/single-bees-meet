@@ -8,7 +8,9 @@ module.exports = {
   mode: 'universal',
   render: {
     bundleRenderer: {
-      shouldPrefetch: (file, type) => ['script', 'style', 'font'].includes(type)
+      shouldPreload: (file, type) => {
+        return ['script', 'style', 'font'].includes(type)
+      }
     }
   },
   /*
