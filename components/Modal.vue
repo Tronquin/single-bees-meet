@@ -45,28 +45,24 @@ export default {
           class="modal-body"
         >
           <slot name="body">
-            {{ card.description }}
+            <p>{{ card.description }}</p>
           </slot>
         </section>
-        <footer class="modal-footer">
-          <slot name="footer">
-            {{ card.status }}
-
-            <button
-              type="button"
-              class="btn-green"
-              aria-label="Close modal"
-              @click="close"
-            >
-              Close me!
-            </button>
-          </slot>
-        </footer>
       </div>
     </div>
   </transition>
 </template>
-<style>
+<style lang="scss" scoped>
+@import "~/assets/scss/main.scss";
+ .modal-fade-enter,
+  .modal-fade-leave-active {
+    opacity: 0;
+  }
+
+  .modal-fade-enter-active,
+  .modal-fade-leave-active {
+    transition: opacity .5s ease
+  }
   .modal-backdrop {
     position: fixed;
     top: 0;
@@ -81,11 +77,21 @@ export default {
   }
 
   .modal {
-    background: #FFFFFF;
+    background: $sunflower-blue;
     box-shadow: 2px 2px 20px 1px;
     overflow-x: auto;
     display: flex;
+    height: 100%;
     flex-direction: column;
+    &-body  {
+      height: 100%;
+      display: flex;
+      flex-flow: column wrap;
+      justify-content: space-around;
+      p {
+        font-family: 'SourceSansLight';
+      }
+    }
   }
 
   .modal-header,
@@ -95,13 +101,11 @@ export default {
   }
 
   .modal-header {
-    border-bottom: 1px solid #eeeeee;
-    color: #4AAE9B;
+    color:  white;
     justify-content: space-between;
   }
 
   .modal-footer {
-    border-top: 1px solid #eeeeee;
     justify-content: flex-end;
   }
 
@@ -116,14 +120,14 @@ export default {
     padding: 20px;
     cursor: pointer;
     font-weight: bold;
-    color: #4AAE9B;
+    color: white;
     background: transparent;
   }
 
   .btn-green {
     color: white;
-    background: #4AAE9B;
-    border: 1px solid #4AAE9B;
+    background: white;
+    border: 1px solid white;
     border-radius: 2px;
   }
 </style>

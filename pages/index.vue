@@ -19,6 +19,7 @@
             <div class="slides-1" />
             <div class="slides-2" />
             <div class="slides-3" />
+            <div class="slides-4" />
           </div>
         </div>
       </section>
@@ -27,10 +28,8 @@
           @handleSelection="handleSelection"
         />
       </section>
-      <section class="wrapper-GameCardsStack" id="cardStack">
-        <div class="dummy" />
+      <section v-if="(bee || flower)" id="cardStack" class="wrapper-GameCardsStack">
         <GameCardsStack
-          v-if="onViewport"
           :cards="cards"
           :bee="bee"
           :flower="flower"
@@ -47,9 +46,9 @@
 <script>
 import FontFaceObserver from 'fontfaceobserver'
 import Navbar from '../layouts/navbar'
+import Footer from '../layouts/footer'
 import WhatAreYou from '../components/WhatAreYou'
 import GameCardsStack from '../components/GameCardsStack'
-import Footer from '../layouts/footer'
 
 export default {
   name: 'Index',
@@ -206,20 +205,6 @@ export default {
     }
   },
   mounted() {
-    // Lazyload Component
-    const dummy = this.$el.querySelector('.dummy')
-    const observer = new IntersectionObserver((entries, self) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          this.onViewport = !this.onViewport
-          self.unobserve(entry.target)
-          dummy.parentNode.removeChild(dummy)
-        }
-      })
-    })
-
-    observer.observe(dummy)
-
     // Font Loader
     const PlayfairDisplay = new FontFaceObserver('PlayfairDisplay')
     const SourceSans = new FontFaceObserver('SourceSans')
@@ -282,7 +267,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import "~/assets/scss/main.scss";
 section {
   height: 100vh;
@@ -345,37 +330,47 @@ section {
         background-color: transparent;
         &-1,
         &-2,
-        &-3 {
+        &-3,
+        &-4 {
           position: absolute;
           width: 100%;
           height: 100%;
         }
 
         &-1 {
-          background: url("../static/img/main-bee.png") no-repeat center;
+          background: url("../static/img/bee-draw-01.png") no-repeat center;
           animation: fade 8s infinite ease-in-out;
         }
 
         &-2 {
-          background: url("../static/img/main-sunflower.png") no-repeat
+          background: url("../static/img/bee-draw-02.png") no-repeat
             center;
           background-size: 80%;
           animation: fade2 8s infinite ease-in-out;
         }
 
         &-3 {
-          background: url("../static/img/bee-draw-01.png") no-repeat center;
+          background: url("../static/img/bee-draw-03.png") no-repeat center;
           background-size: cover;
           animation: fade3 8s infinite ease-in-out;
+        }
+
+        &-4 {
+          background: url("../static/img/bee-draw-04.png") no-repeat center;
+          background-size: cover;
+          animation: fade4 8s infinite ease-in-out;
         }
         @keyframes fade {
           0% {
             opacity: 1;
           }
-          33.333% {
+          25% {
             opacity: 0;
           }
-          66.666% {
+          50% {
+            opacity: 0;
+          }
+          75% {
             opacity: 0;
           }
           100% {
@@ -386,10 +381,13 @@ section {
           0% {
             opacity: 0;
           }
-          33.333% {
+          25% {
             opacity: 1;
           }
-          66.666% {
+          50% {
+            opacity: 0;
+          }
+          75% {
             opacity: 0;
           }
           100% {
@@ -400,10 +398,30 @@ section {
           0% {
             opacity: 0;
           }
-          33.333% {
+          25% {
             opacity: 0;
           }
-          66.666% {
+          50% {
+            opacity: 1;
+          }
+          75% {
+            opacity: 0;
+          }
+          100% {
+            opacity: 0;
+          }
+        }
+        @keyframes fade4 {
+          0% {
+            opacity: 0;
+          }
+          25% {
+            opacity: 0;
+          }
+          50% {
+            opacity: 0;
+          }
+          75% {
             opacity: 1;
           }
           100% {

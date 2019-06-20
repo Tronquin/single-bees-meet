@@ -2,12 +2,12 @@
   <div class="whatAreYou">
     <h2>What Are You?</h2>
     <div class="choice-container">
-      <div class="option grow" @click.once="OptionSelected(ImBee, ImFlower = true)" v-scroll-to="'#cardStack'">
+      <div v-scroll-to="'#cardStack'" class="option grow" @click.once="OptionSelected(ImBee, ImFlower = true)">
         <div class="hexagon-orange">
           <img v-lazy="`img/${bee}`" alt="bee.choice" class="bee">
         </div>
       </div>
-      <div class="option grow" @click.once="OptionSelected(ImBee = true, ImFlower)" v-scroll-to="'#cardStack'">
+      <div v-scroll-to="'#cardStack'" class="option grow" @click.once="OptionSelected(ImBee = true, ImFlower)">
         <div class="hexagon-blue">
           <img v-lazy="`img/${flower}`" alt="sunflower.choice" class="flower">
         </div>

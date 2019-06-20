@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="contact">
     <Navbar />
-    Resources
+    Contacto!
     <Footer />
   </div>
 </template>
@@ -10,7 +10,7 @@
 import Navbar from '../layouts/navbar'
 import Footer from '../layouts/footer'
 export default {
-  name: 'Resources',
+  name: 'Contact',
   components: {
     Navbar,
     Footer

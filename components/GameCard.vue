@@ -85,8 +85,7 @@ export default {
   },
   mounted() {
     const element = this.$refs.interactElement
-
-    interact(element).draggable({
+    interact(element, event).draggable({
       onstart: () => {
         this.isInteractAnimating = false
       },
@@ -112,10 +111,18 @@ export default {
         const { interactXThreshold, interactYThreshold } = this.$options.static
         this.isInteractAnimating = true
 
-        if (x > interactXThreshold) this.playCard(ACCEPT_CARD)
-        else if (x < -interactXThreshold) this.playCard(REJECT_CARD)
-        else if (y > interactYThreshold) this.playCard(SKIP_CARD)
-        else this.resetCardPosition()
+        if (x > interactXThreshold) {
+          this.playCard(ACCEPT_CARD)
+          this.$emit('cardPicked', this.card, true)
+        } else if (x < -interactXThreshold) {
+          this.playCard(REJECT_CARD)
+          this.$emit('cardPicked', this.card, false)
+        } else if (y > interactYThreshold) {
+          this.playCard(SKIP_CARD)
+          this.$emit('cardPicked', this.card, false)
+        } else {
+          this.resetCardPosition()
+        }
       }
     })
   },

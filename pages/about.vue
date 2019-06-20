@@ -1,28 +1,21 @@
 <template>
-  <div>
-    <h1>
-      Single Bees are looking for Big juicy fat
-      <span>Flowers!</span>
-    </h1>
-    <p>Bananas are cute too</p>
+  <div class="about">
+    <Navbar />
+    About
+    <Footer />
   </div>
 </template>
-
 <script>
-export default {}
+import Navbar from '../layouts/navbar'
+import Footer from '../layouts/footer'
+export default {
+  name: 'About',
+  components: {
+    Navbar,
+    Footer
+  }
+}
 </script>
 
 <style>
-h1 {
-  color: pink;
-  font-weight: normal;
-}
-
-p {
-  color: gold;
-}
-
-span {
-  font-weight: bold;
-}
 </style>

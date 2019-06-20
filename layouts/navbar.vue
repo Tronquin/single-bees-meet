@@ -1,24 +1,34 @@
 <template>
   <header>
     <div class="navbar-wrapper">
-      <div class="logo-container">
-        <span>Single</span>
-        <span>Bees</span>
-        <span>Meet</span>
-      </div>
+      <nuxt-link to="/">
+        <div class="logo-container">
+          <span>Single</span>
+          <span>Bees</span>
+          <span>Meet</span>
+        </div>
+      </nuxt-link>
       <nav class="nav">
         <ul class="nav__links">
           <li>
-            <a href="#">Dating</a>
+            <nuxt-link to="/dating">
+              Dating
+            </nuxt-link>
           </li>
           <li>
-            <a href="#">About</a>
+            <nuxt-link to="/about">
+              About
+            </nuxt-link>
           </li>
           <li>
-            <a href="#">Resources</a>
+            <nuxt-link to="/resources">
+              Resources
+            </nuxt-link>
           </li>
           <li>
-            <a href="#">Contact</a>
+            <nuxt-link to="/contact">
+              Contact
+            </nuxt-link>
           </li>
         </ul>
       </nav>
@@ -59,17 +69,10 @@ header {
     clear: both;
     display: block;
   }
-  .navbar-wrapper {
-    max-width: 1160px;
-    margin-right: auto;
-    margin-left: auto;
-    padding: 0 10px;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  a {
+        text-decoration: none;
   }
-  .logo-container {
+    .logo-container {
     margin-left: 1.75em;
     display: flex;
     align-items: center;
@@ -87,6 +90,16 @@ header {
     // &:hover {
     //   color: $sunflower-yellow-dark;
     // }
+  }
+  .navbar-wrapper {
+    max-width: 1160px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 0 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
   .nav {
     width: 100%;
