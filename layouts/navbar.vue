@@ -64,15 +64,16 @@ header {
   background: $sunflower-black;
   padding: 1em 0;
   position: relative;
+  z-index: 99999;
   &::after {
     //content: '';
     clear: both;
     display: block;
   }
   a {
-        text-decoration: none;
+    text-decoration: none;
   }
-    .logo-container {
+  .logo-container {
     margin-left: 1.75em;
     display: flex;
     align-items: center;
@@ -178,7 +179,7 @@ header {
   }
 }
 
-@include for-tablet-portrait-up {
+@include mq-mobile {
   header {
     background: none;
     justify-content: space-around;

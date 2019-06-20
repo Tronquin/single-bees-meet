@@ -10,9 +10,7 @@
             <br>nate?
           </h1>
           <p>This is a Dating site for bees and flowers of all sorts, meet your honey right now!</p>
-          <a v-scroll-to="'#whatAreYou'" href="#" class="btn-GameCardsStack">
-            Start Dating
-          </a>
+          <a v-scroll-to="'#whatAreYou'" href="#" class="btn-GameCardsStack">Start Dating</a>
         </div>
         <div class="slides-container">
           <div class="slides">
@@ -24,9 +22,7 @@
         </div>
       </section>
       <section id="whatAreYou" class="wrapper-whatAreYou">
-        <WhatAreYou
-          @handleSelection="handleSelection"
-        />
+        <WhatAreYou @handleSelection="handleSelection" />
       </section>
       <section v-if="(bee || flower)" id="cardStack" class="wrapper-GameCardsStack">
         <GameCardsStack
@@ -73,7 +69,8 @@ export default {
       honey: {
         name: 'Honey',
         status: 'IN DANGER',
-        info: 'One of the most common social insects on the planet, honey bees create colonies that can be as large as 80,000 individual insects, live in hives and create honey.',
+        info:
+          'One of the most common social insects on the planet, honey bees create colonies that can be as large as 80,000 individual insects, live in hives and create honey.',
         location: 'Somewhere',
         description: 'One of the most common social insects on the planet',
         show: true,
@@ -83,7 +80,8 @@ export default {
       bumble: {
         name: 'Bumble',
         status: 'IN DANGER',
-        info: 'Bumble bees are very large, black and yellow, bees that you see flying around your garden during the warmer months.',
+        info:
+          'Bumble bees are very large, black and yellow, bees that you see flying around your garden during the warmer months.',
         description: 'Bumble bees are very large, black and yellow',
         location: 'Somewhere',
         show: true,
@@ -93,8 +91,10 @@ export default {
       leaf: {
         name: 'Leafcutter',
         status: 'IN DANGER',
-        info: 'These bees are about 7 to 18mm in length and look like they are made from some light metal or are very dark in color.',
-        description: 'hese bees are about 7 to 18mm in length and look like they are made from some light metal ',
+        info:
+          'These bees are about 7 to 18mm in length and look like they are made from some light metal or are very dark in color.',
+        description:
+          'hese bees are about 7 to 18mm in length and look like they are made from some light metal ',
         location: 'Somewhere',
         show: true,
         showMoreInfo: false,
@@ -103,7 +103,8 @@ export default {
       carpen: {
         name: 'Carpenter',
         status: 'IN DANGER',
-        info: 'Carpenter bees are tricky to spot, but you may see them flying around you if you are near their chosen nesting area.',
+        info:
+          'Carpenter bees are tricky to spot, but you may see them flying around you if you are near their chosen nesting area.',
         description: 'Carpenter bees are tricky to spot',
         location: 'Somewhere',
         show: true,
@@ -113,8 +114,10 @@ export default {
       mining: {
         name: 'Mining',
         status: 'IN DANGER',
-        info: 'There’s about 1,200 species of bees in the Andrena family, most commonly called mining bees. They are very similar in their behavior as digger bees.',
-        description: 'There’s about 1,200 species of bees in the Andrena family',
+        info:
+          'There’s about 1,200 species of bees in the Andrena family, most commonly called mining bees. They are very similar in their behavior as digger bees.',
+        description:
+          'There’s about 1,200 species of bees in the Andrena family',
         location: 'Somewhere',
         show: true,
         showMoreInfo: false,
@@ -123,7 +126,8 @@ export default {
       plaste: {
         name: 'Plasterer',
         status: 'IN DANGER',
-        info: 'Plasterer bees are a little bigger than sweat bees, coming in around 10 – 18mm in length and also quite hairy-looking.',
+        info:
+          'Plasterer bees are a little bigger than sweat bees, coming in around 10 – 18mm in length and also quite hairy-looking.',
         description: 'Plasterer bees are a little bigger than sweat bees',
         location: 'Somewhere',
         show: true,
@@ -135,9 +139,11 @@ export default {
       Sunflower: {
         name: 'Sunflower',
         status: 'IN NEED OF BEES',
-        info: 'Sunflowers are tall with big, prolific heads that contain smaller flowers inside the circular disc. It’s basically a nectar and pollen playground for pollinators, but we also benefit from the crop because it yields seeds and oil.',
+        info:
+          'Sunflowers are tall with big, prolific heads that contain smaller flowers inside the circular disc. It’s basically a nectar and pollen playground for pollinators, but we also benefit from the crop because it yields seeds and oil.',
         location: 'somewhere',
-        description: 'Sunflowers are tall with big, prolific heads that contain smaller flowers inside the circular disc.',
+        description:
+          'Sunflowers are tall with big, prolific heads that contain smaller flowers inside the circular disc.',
         show: true,
         showMoreInfo: false,
         img: 'sunflower.jpg'
@@ -145,7 +151,8 @@ export default {
       Lilacs: {
         name: 'Lilacs',
         status: 'IN NEED OF BEES',
-        info: 'Lilacs come in seven colors and are easy to grow. Most shrubs grow at eye-level and give off a sweet, floral fragrance to keep the bees and butterflies coming back for more.',
+        info:
+          'Lilacs come in seven colors and are easy to grow. Most shrubs grow at eye-level and give off a sweet, floral fragrance to keep the bees and butterflies coming back for more.',
         location: 'somewhere',
         description: 'Lilacs come in seven colors and are easy to grow',
         show: true,
@@ -155,9 +162,11 @@ export default {
       Lavander: {
         name: 'Lavander',
         status: 'IN NEED OF BEES',
-        info: 'Lavender plants are much-buzzed about when it comes to honey bees—possibly because of their long bloom time and the fact that they’re rich in nectar.',
+        info:
+          'Lavender plants are much-buzzed about when it comes to honey bees—possibly because of their long bloom time and the fact that they’re rich in nectar.',
         location: 'somewhere',
-        description: 'Lavender plants are much-buzzed about when it comes to honey bees',
+        description:
+          'Lavender plants are much-buzzed about when it comes to honey bees',
         show: true,
         showMoreInfo: false,
         img: 'lavander.jpg'
@@ -165,7 +174,8 @@ export default {
       Wisteria: {
         name: 'Wisteria',
         status: 'IN NEED OF BEES',
-        info: 'Wisteria vines are quite fragrant, and when blossoms start to bloom during its short growing season, you can expect to see a swarm buzzing around this charming climber.',
+        info:
+          'Wisteria vines are quite fragrant, and when blossoms start to bloom during its short growing season, you can expect to see a swarm buzzing around this charming climber.',
         location: 'somewhere',
         description: 'Wisteria vines are quite fragrant',
         show: true,
@@ -175,9 +185,11 @@ export default {
       Mint: {
         name: 'Mint',
         status: 'IN NEED OF BEES',
-        info: 'When it’s hot outside, Southerners will find any excuse to sneak a little mint in their cocktails, main dishes, and desserts. So it should come as no surprise that bees love the plant too, especially water mint.',
+        info:
+          'When it’s hot outside, Southerners will find any excuse to sneak a little mint in their cocktails, main dishes, and desserts. So it should come as no surprise that bees love the plant too, especially water mint.',
         location: 'somewhere',
-        description: 'When it’s hot outside, Southerners will find any excuse to sneak a little mint in their cocktails.',
+        description:
+          'When it’s hot outside, Southerners will find any excuse to sneak a little mint in their cocktails.',
         show: true,
         showMoreInfo: false,
         img: 'mint.jpg'
@@ -185,9 +197,11 @@ export default {
       Poppies: {
         name: 'Poppies',
         status: 'IN NEED OF BEES',
-        info: 'This showy spring flower provides a banquet of food or pollen, where honey bees often frequent the plant’s flowering buffet',
+        info:
+          'This showy spring flower provides a banquet of food or pollen, where honey bees often frequent the plant’s flowering buffet',
         location: 'somewhere',
-        description: 'This showy spring flower provides a banquet of food or pollen.',
+        description:
+          'This showy spring flower provides a banquet of food or pollen.',
         show: true,
         showMoreInfo: false,
         img: 'poppies.jpg'
@@ -343,8 +357,7 @@ section {
         }
 
         &-2 {
-          background: url("../static/img/bee-draw-02.png") no-repeat
-            center;
+          background: url("../static/img/bee-draw-02.png") no-repeat center;
           background-size: 80%;
           animation: fade2 8s infinite ease-in-out;
         }
@@ -442,15 +455,20 @@ section {
   }
 }
 
-@include for-tablet-landscape-up {
+@include mq-tablet {
   .wrapper {
     max-width: 960px;
     &-landing {
-      grid-template-columns: 1fr;
-      grid-template-areas: "headline" "image";
+      display: flex;
+      flex-flow: column wrap;
+      justify-content: center;
+      align-items: center;
+      .slides-container {
+        display: none;
+      }
     }
   }
 }
-@include for-tablet-landscape-up {
+@include mq-tablet {
 }
 </style>
