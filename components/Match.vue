@@ -130,7 +130,7 @@ export default {
       }
       p {
         font-family: 'SourceSansLight';
-        font-size: 2em;
+        font-size: 1.2em;
       }
           .btn-help {
         text-decoration: none;
@@ -142,7 +142,7 @@ export default {
         border: none;
         outline: none;
         font-family: "SourceSansBold";
-        font-size: 1.2em;
+        font-size: 1em;
         cursor: pointer;
         color: $sunflower-black;
         text-transform: uppercase;
