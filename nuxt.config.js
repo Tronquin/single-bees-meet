@@ -41,7 +41,8 @@ module.exports = {
    ** Plugins to load before mounting the App
    */
   plugins: [
-    { src: '~/plugins/VueLazy.js', ssr: false }
+    { src: '~/plugins/VueLazy.js', ssr: false },
+    { src: '~/plugins/VueScrollTo.js', srr: false }
   ],
 
   /*
@@ -60,7 +61,8 @@ module.exports = {
           icons: ['fas']
         }
       ]
-    }]
+    }],
+    ['vue-scrollto/nuxt', { duration: 300 }]
 
   ],
   workbox: {

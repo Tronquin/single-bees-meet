@@ -16,7 +16,10 @@ body, html {
   padding-right: 10px;
   padding-left:  10px;
 }
+
 @import './base/colors';
 @import './base/queries';
+@import './base/animations';
+@import './base/mixins';
 
 

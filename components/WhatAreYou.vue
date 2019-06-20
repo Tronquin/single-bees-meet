@@ -2,14 +2,14 @@
   <div class="whatAreYou">
     <h2>What Are You?</h2>
     <div class="choice-container">
-      <div class="option">
+      <div class="option grow" @click.once="OptionSelected(ImBee, ImFlower = true)" v-scroll-to="'#cardStack'">
         <div class="hexagon-orange">
-            <img v-lazy="`img/${bee}`"  alt="bee.choice" class="bee">
+          <img v-lazy="`img/${bee}`" alt="bee.choice" class="bee">
         </div>
       </div>
-      <div class="option">
+      <div class="option grow" @click.once="OptionSelected(ImBee = true, ImFlower)" v-scroll-to="'#cardStack'">
         <div class="hexagon-blue">
-            <img v-lazy="`img/${flower}`" alt="sunflower.choice" class="flower">
+          <img v-lazy="`img/${flower}`" alt="sunflower.choice" class="flower">
         </div>
       </div>
     </div>
@@ -22,7 +22,16 @@ export default {
   data() {
     return {
       bee: 'main-bee.png',
-      flower: 'main-sunflower.png'
+      flower: 'main-sunflower.png',
+      ImBee: false,
+      ImFlower: false
+    }
+  },
+  methods: {
+    OptionSelected(ImBee, ImFlower) {
+      this.ImBee = ImBee
+      this.ImFlower = ImFlower
+      this.$emit('handleSelection', this.ImBee, this.ImFlower)
     }
   }
 }
@@ -40,6 +49,13 @@ export default {
     text-align: center;
   }
   .choice-container {
+    .option {
+      margin: 0 2em;
+    }
+    .grow { transition: all .2s ease-in-out;
+    &:hover {
+      transform: scale(1.1);
+    }}
     margin-top: 2.5em;
     display: flex;
     justify-content: space-between;

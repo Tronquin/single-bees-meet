@@ -37,7 +37,6 @@ export default {
 @import "~/assets/scss/main.scss";
 
 .facts {
-  margin-bottom: 1em;
   p {
     font-family: "SourceSansBold";
     color: $sunflower-black;
