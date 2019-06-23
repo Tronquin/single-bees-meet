@@ -29,6 +29,10 @@ export default {
   },
   methods: {
     OptionSelected(ImBee, ImFlower) {
+      const options = document.querySelectorAll('.option')
+      options.forEach((option) => {
+        option.classList.add('no-pointer')
+      })
       this.ImBee = ImBee
       this.ImFlower = ImFlower
       this.$emit('handleSelection', this.ImBee, this.ImFlower)
@@ -39,6 +43,9 @@ export default {
 
 <style lang="scss">
 @import "~/assets/scss/main.scss";
+.no-pointer {
+  pointer-events: none;
+}
 .whatAreYou {
   h2 {
     font-family: "PlayfairDisplayBold";
@@ -128,6 +135,142 @@ left: 5%;
       width: 100%;
       position: absolute;
       z-index: 10;
+    }
+  }
+}
+
+@include mq-tablet  {
+  .whatAreYou {
+      margin: 3em 0;
+      h2 {
+        text-align: center;
+      }
+      .choice-container {
+        flex-flow: column wrap;
+        margin: 1em 0;
+          .option {
+            margin: 1em 0em;
+        .hexagon-orange {
+          position: relative;
+          width: 300px;
+          height: 173.21px;
+          background-color: $sunflower-orange;
+          margin: 86.60px 0;
+        }
+
+        .hexagon-orange:before,
+        .hexagon-orange:after {
+          content: "";
+          position: absolute;
+          width: 0;
+          border-left: 150px solid transparent;
+          border-right: 150px solid transparent;
+        }
+
+        .hexagon-orange:before {
+          bottom: 100%;
+          border-bottom: 86.60px solid $sunflower-orange;
+        }
+
+        .hexagon-orange:after {
+          top: 100%;
+          width: 0;
+          border-top: 86.60px solid $sunflower-orange;
+        }
+                .hexagon-blue {
+          position: relative;
+          width: 300px;
+          height: 173.21px;
+          background-color: $sunflower-blue;
+          margin: 86.60px 0;
+        }
+
+        .hexagon-blue:before,
+        .hexagon-blue:after {
+          content: "";
+          position: absolute;
+          width: 0;
+          border-left: 150px solid transparent;
+          border-right: 150px solid transparent;
+        }
+
+        .hexagon-blue:before {
+          bottom: 100%;
+          border-bottom: 86.60px solid $sunflower-blue;
+        }
+
+        .hexagon-blue:after {
+          top: 100%;
+          width: 0;
+          border-top: 86.60px solid $sunflower-blue;
+        }
+      }
+    }
+  }
+}
+
+@include mq-mobile-small {
+  .whatAreYou {
+    h2 {
+      font-size: 3em;
+    }
+    .choice-container {
+      .option {
+        .hexagon-orange {
+          position: relative;
+          width: 200px;
+          height: 115.47px;
+          background-color: $sunflower-orange;
+          margin: 57.74px 0;
+        }
+
+        .hexagon-orange:before,
+        .hexagon-orange:after {
+          content: "";
+          position: absolute;
+          width: 0;
+          border-left: 100px solid transparent;
+          border-right: 100px solid transparent;
+        }
+
+        .hexagon-orange:before {
+          bottom: 100%;
+          border-bottom: 57.74px solid $sunflower-orange;
+        }
+
+        .hexagon-orange:after {
+          top: 100%;
+          width: 0;
+          border-top: 57.74px solid $sunflower-orange;
+        }
+        .hexagon-blue {
+          position: relative;
+          width: 200px;
+          height: 115.47px;
+          background-color: $sunflower-blue;
+          margin: 57.74px 0;
+        }
+
+        .hexagon-blue:before,
+        .hexagon-blue:after {
+          content: "";
+          position: absolute;
+          width: 0;
+          border-left: 100px solid transparent;
+          border-right: 100px solid transparent;
+        }
+
+        .hexagon-blue:before {
+          bottom: 100%;
+          border-bottom: 57.74px solid $sunflower-blue;
+        }
+
+        .hexagon-blue:after {
+          top: 100%;
+          width: 0;
+          border-top: 57.74px solid $sunflower-blue;
+        }
+      }
     }
   }
 }

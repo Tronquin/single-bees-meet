@@ -68,8 +68,8 @@ export default {
     }
   },
   static: {
-    interactYThreshold: 250,
-    interactXThreshold: 200
+    interactYThreshold: 150,
+    interactXThreshold: 100
   },
   computed: {
     transformString() {
@@ -255,6 +255,12 @@ $defaultScale: 1 - ($cardsScaleOffset * $cardsTotal);
   }
 }
 
+@include mq-tablet {
+  .card {
+    @include sizing(250px 100vw);
+    max-height: 350px;
+  }
+}
 .cardInfo {
     display: flex;
     margin-top: auto;

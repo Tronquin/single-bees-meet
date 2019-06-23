@@ -287,6 +287,10 @@ section {
   height: 100vh;
 }
 .wrapper {
+  scroll-snap-type: y mandatory;
+  & section {
+    scroll-snap-align: start;
+  }
   &-landing {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -452,23 +456,57 @@ section {
   }
   &-GameCardsStack {
     position: relative;
+    touch-action: none;
   }
 }
 
 @include mq-tablet {
+  section {
+    height: unset;
+  }
   .wrapper {
-    max-width: 960px;
     &-landing {
+      height: unset;
+      padding: 0;
       display: flex;
-      flex-flow: column wrap;
-      justify-content: center;
       align-items: center;
-      .slides-container {
-        display: none;
+      justify-content: center;
+      margin: 2em 0;
+      .left-side-container {
+        align-items: center;
+        h1 {
+          text-align: center;
+          letter-spacing: unset;
+        }
+        p{
+          text-align: center;
+        }
+        .btn-GameCardsStack {
+          padding: 1.5em 1em;
+        }
       }
     }
   }
 }
-@include mq-tablet {
+
+@include mq-mobile-small {
+  .wrapper {
+    max-width: unset;
+    padding: unset;
+    margin: unset;
+    &-landing {
+      .left-side-container {
+        h1 {
+          font-size: 5em;
+        }
+        p {
+          font-size: 1.5em;
+        }
+                .btn-GameCardsStack {
+          padding: 0.5em 1em;
+        }
+      }
+    }
+  }
 }
 </style>

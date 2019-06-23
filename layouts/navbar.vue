@@ -65,6 +65,7 @@ header {
   padding: 1em 0;
   position: relative;
   z-index: 99999;
+  width: 100%;
   &::after {
     //content: '';
     clear: both;

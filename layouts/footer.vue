@@ -22,4 +22,20 @@ footer {
   align-items: center;
   height: 8vh;
 }
+
+@include mq-tablet {
+  footer {
+    .footer-headline {
+      font-size: 1em;
+    }
+  }
+}
+
+@include mq-mobile-small {
+    footer {
+    .footer-headline {
+      font-size: 0.7em;
+    }
+  }
+}
 </style>

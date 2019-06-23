@@ -173,4 +173,19 @@ export default {
     }
   }
 
+@include mq-tablet {
+  .tutorial {
+    display: none;
+  }
+  .noMore {
+    height: 400px;
+    width: 200px;
+    margin-top: 8em;
+    justify-content: center;
+    .btn-about {
+      width: unset;
+      margin-top: 1em;
+    }
+  }
+}
 </style>

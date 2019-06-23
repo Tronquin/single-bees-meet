@@ -132,7 +132,7 @@ export default {
         font-family: 'SourceSansLight';
         font-size: 1.2em;
       }
-          .btn-help {
+      .btn-help {
         text-decoration: none;
         text-align: center;
         width: 50%;
@@ -168,7 +168,7 @@ export default {
 
   .modal-header {
     color: $sunflower-black;
-    justify-content: space-between;
+    justify-content: flex-end;
   }
 
   .modal-body {
@@ -193,5 +193,48 @@ export default {
     background: $sunflower-blue;
     border: 1px solid $sunflower-blue;
     border-radius: 2px;
+  }
+
+  @include mq-tablet {
+    .modal {
+            overflow-y: scroll;
+                &-header {
+      justify-content: flex-end;
+      .btn-close {
+        color: white;
+      }
+    }
+        &-body {
+          flex-flow: column wrap;
+      margin-top: 6em;
+      height: unset;
+      .modal-match-img {
+        width: 100%;
+      }
+      &-text {
+        margin: unset;
+        width: 100%;
+        text-align: center;
+        h2 {
+          margin: 0.5em 0;
+        }
+        &-white {
+          margin-top: 0;
+          padding: 1em;
+          h2 {
+            margin: 0;
+          }
+          h3 {
+            margin: 0.5em 0;
+          }
+          .btn-help {
+            margin-top: 1em;
+            width: unset;
+          }
+        }
+      }
+    }
+    }
+
   }
 </style>

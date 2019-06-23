@@ -69,7 +69,6 @@ export default {
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: rgba(0, 0, 0, 0.500);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -77,12 +76,12 @@ export default {
   }
 
   .modal {
-    background: $sunflower-blue;
-    box-shadow: 2px 2px 20px 1px;
+    background: $sunflower-orange;
     overflow-x: auto;
     display: flex;
     height: 100%;
     flex-direction: column;
+    text-align: center;
     &-body  {
       height: 100%;
       display: flex;
