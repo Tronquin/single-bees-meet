@@ -25,7 +25,17 @@ module.exports = {
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
-
+  manifest: {
+    name: 'Single Bees Meet Buzz',
+    short_name: 'Single Bees Meet',
+    title: 'Single Bees Meet Buzz',
+    lang: 'en',
+    description: 'Single Bees Meet Buzz is a Dating Site for Bees and Flowers!',
+    background_color: '#dfb539',
+    theme_color: '#dfb539',
+    start_url: 'https://singlebeesmeet.netlify.com/?standalone=true',
+    display: 'standalone'
+  },
   /*
    ** Customize the progress-bar color
    */
