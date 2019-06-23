@@ -12,12 +12,10 @@
           <p>This is a Dating site for bees and flowers of all sorts, meet your honey right now!</p>
           <a v-scroll-to="'#whatAreYou'" href="#" class="btn-GameCardsStack">Start Dating</a>
         </div>
-        <div class="slides-container">
+        <div v-if="onViewport" class="dummy" />
+        <div v-else class="slides-container">
           <div class="slides">
-            <div class="slides-1" />
-            <div class="slides-2" />
-            <div class="slides-3" />
-            <div class="slides-4" />
+            <div v-for="(background, index) in sliderImages" :key="index" :class="`slides-${index+1}`" :style="{'background': `url('img/${background.name}') no-repeat center`}" />
           </div>
         </div>
       </section>
@@ -57,14 +55,17 @@ export default {
   data() {
     return {
       cards: [],
-      onViewport: false,
+      onViewport: true,
       bee: false,
       flower: false,
       beeCards: [],
-      flowerCards: []
+      flowerCards: [],
+      sliderPng: [],
+      sliderWebp: [],
+      sliderImages: []
     }
   },
-  created() {
+  async created() {
     const bees = {
       honey: {
         name: 'Honey',
@@ -207,6 +208,45 @@ export default {
         img: 'poppies.jpg'
       }
     }
+    const sliderPng = {
+      slide1: {
+        name: 'bee-draw-01.png'
+      },
+      slide2: {
+        name: 'bee-draw-02.png'
+      },
+      slide3: {
+        name: 'bee-draw-03.png'
+      },
+      slide4: {
+        name: 'bee-draw-04.png'
+      }
+    }
+    const sliderWebp = {
+      slide1: {
+        name: 'bee-draw-01.webp'
+      },
+      slide2: {
+        name: 'bee-draw-02.webp'
+      },
+      slide3: {
+        name: 'bee-draw-03.webp'
+      },
+      slide4: {
+        name: 'bee-draw-04.webp'
+      }
+    }
+
+    for (const key in sliderPng) {
+      if (sliderPng.hasOwnProperty(key)) {
+        this.sliderPng.push(sliderPng[key])
+      }
+    }
+    for (const key in sliderWebp) {
+      if (sliderWebp.hasOwnProperty(key)) {
+        this.sliderWebp.push(sliderWebp[key])
+      }
+    }
     for (const key in bees) {
       if (bees.hasOwnProperty(key)) {
         this.beeCards.push(bees[key])
@@ -217,8 +257,20 @@ export default {
         this.flowerCards.push(flowers[key])
       }
     }
+
+    await this.checkIfWebpSupport()
   },
   mounted() {
+    const dummy = this.$el.querySelector('.dummy')
+    const observer = new IntersectionObserver((entries, self) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          this.onViewport = !this.onViewport
+          self.unobserve(entry.target)
+        }
+      })
+    })
+    observer.observe(dummy)
     // Font Loader
     const PlayfairDisplay = new FontFaceObserver('PlayfairDisplay')
     const SourceSans = new FontFaceObserver('SourceSans')
@@ -257,6 +309,22 @@ export default {
     }
   },
   methods: {
+    async supportsWebp() {
+      if (!self.createImageBitmap) return false
+
+      const webpData = 'data:image/webp;base64,UklGRh4AAABXRUJQVlA4TBEAAAAvAAAAAAfQ//73v/+BiOh/AAA='
+      const blob = await fetch(webpData).then(r => r.blob())
+      return createImageBitmap(blob).then(() => true, () => false)
+    },
+    async checkIfWebpSupport() {
+      if (await this.supportsWebp()) {
+        this.sliderImages = this.sliderWebp
+        console.log('does support')
+      } else {
+        this.sliderImages = this.sliderPng
+        console.log('does not support')
+      }
+    },
     handleSelection(bee, flower) {
       if (bee) {
         this.bee = bee
@@ -356,24 +424,20 @@ section {
         }
 
         &-1 {
-          background: url("../static/img/bee-draw-01.png") no-repeat center;
           animation: fade 8s infinite ease-in-out;
         }
 
         &-2 {
-          background: url("../static/img/bee-draw-02.png") no-repeat center;
           background-size: 80%;
           animation: fade2 8s infinite ease-in-out;
         }
 
         &-3 {
-          background: url("../static/img/bee-draw-03.png") no-repeat center;
           background-size: cover;
           animation: fade3 8s infinite ease-in-out;
         }
 
         &-4 {
-          background: url("../static/img/bee-draw-04.png") no-repeat center;
           background-size: cover;
           animation: fade4 8s infinite ease-in-out;
         }

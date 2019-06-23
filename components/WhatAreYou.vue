@@ -21,13 +21,36 @@ export default {
   name: 'WhatAreYou',
   data() {
     return {
-      bee: 'main-bee.png',
+      bee: '',
+      beePng: 'main-bee.png',
+      beeWebp: 'main-bee.webp',
       flower: 'main-sunflower.png',
       ImBee: false,
       ImFlower: false
     }
   },
+  async created() {
+    this.beePng = 'main-bee.png'
+    this.beeWebp = 'main-bee.webp'
+    await this.checkIfWebpSupport()
+  },
   methods: {
+    async supportsWebp() {
+      if (!self.createImageBitmap) return false
+
+      const webpData = 'data:image/webp;base64,UklGRh4AAABXRUJQVlA4TBEAAAAvAAAAAAfQ//73v/+BiOh/AAA='
+      const blob = await fetch(webpData).then(r => r.blob())
+      return createImageBitmap(blob).then(() => true, () => false)
+    },
+    async checkIfWebpSupport() {
+      if (await this.supportsWebp()) {
+        this.bee = this.beeWebp
+        console.log('does support')
+      } else {
+        this.bee = this.beePng
+        console.log('does not support')
+      }
+    },
     OptionSelected(ImBee, ImFlower) {
       const options = document.querySelectorAll('.option')
       options.forEach((option) => {

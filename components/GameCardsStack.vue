@@ -92,7 +92,6 @@ export default {
     }
   },
   mounted() {
-    console.log('card stack', this.cards)
     this.delta = this.getRandomNumber(0, 5)
   },
   methods: {
@@ -108,11 +107,7 @@ export default {
     handlePickedCard(card, like) {
       this.pickedCard = card
       const currentCandidate = this.cards.indexOf(card)
-      console.log(this.delta)
-      console.log(like)
-      console.log(currentCandidate)
       if (this.delta === currentCandidate && like) {
-        console.log('THATS A MATCH!')
         this.showModal()
       }
     }
