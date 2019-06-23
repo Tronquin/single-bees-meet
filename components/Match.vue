@@ -238,4 +238,9 @@ export default {
     }
 
   }
+  @include mq-mobile-small {
+    .modal-match-img {
+              height: 200px;
+    }
+  }
 </style>
