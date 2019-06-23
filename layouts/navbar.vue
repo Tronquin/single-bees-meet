@@ -80,7 +80,7 @@ header {
   position: relative;
   z-index: 99999;
   width: 100%;
-  transition: background ease-in-out 0.8s;
+  transition: background ease 0.8s;
   &::after {
     //content: '';
     clear: both;
