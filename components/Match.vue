@@ -197,6 +197,7 @@ export default {
 
   @include mq-tablet {
     .modal {
+      height: 90%;
             overflow-y: scroll;
                 &-header {
       justify-content: flex-end;

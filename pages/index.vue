@@ -503,7 +503,8 @@ section {
           font-size: 1.5em;
         }
                 .btn-GameCardsStack {
-          padding: 0.5em 1em;
+          padding: 1em;
+          margin-top: 2em;
         }
       }
     }
