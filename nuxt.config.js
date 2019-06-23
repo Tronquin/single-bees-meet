@@ -53,7 +53,12 @@ module.exports = {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/pwa',
+    ['@nuxtjs/pwa', {
+      meta: {
+        title: 'Single Bees Meet Buzz',
+        description: 'Single Bees Meet Buzz is a Dating Site for Bees and Flowers!'
+      }
+    }],
     '@nuxtjs/workbox',
     ['nuxt-fontawesome', {
       component: 'fa',
