@@ -77,6 +77,7 @@ export default {
 
   .modal {
     background: $sunflower-orange;
+    border-radius: 25px;
     overflow-x: auto;
     display: flex;
     height: 100%;
