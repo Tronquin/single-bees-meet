@@ -45,10 +45,14 @@ export default {
   mounted() {
     const menuToggle = document.querySelector('.menu-toggle')
     const hamburger = document.querySelector('.menu-toggle__hamburger')
+    const header = document.querySelector('header')
+    const logo = document.querySelector('.logo-container')
     const nav = document.querySelector('.nav')
     menuToggle.onclick = () => {
       nav.classList.toggle('nav__open')
       hamburger.classList.toggle('open')
+      header.classList.toggle('header-open')
+      logo.classList.toggle('logo-open')
     }
   }
 }
@@ -57,15 +61,26 @@ export default {
 <style lang="scss">
 @import "~/assets/scss/main.scss";
 
+.header-open {
+  background: $sunflower-black;
+}
+
+.logo-open {
+  span {
+    color: $sunflower-yellow !important;
+  }
+}
+
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: $sunflower-black;
+  background: #ffaf37;
   padding: 1em 0;
   position: relative;
   z-index: 99999;
   width: 100%;
+  transition: background ease-in-out 0.8s;
   &::after {
     //content: '';
     clear: both;
@@ -84,7 +99,7 @@ header {
     span {
       font-family: "SourceSansBold";
       font-size: 1.2em;
-      color: $sunflower-yellow;
+      color: $sunflower-black;
     }
     .logo {
       width: 3.5em;
@@ -151,7 +166,7 @@ header {
     &__hamburger::after {
       content: "";
       display: block;
-      background: $sunflower-yellow;
+      background: $sunflower-black;
       height: 3px;
       width: 1.75em;
       border-radius: 3px;
@@ -168,14 +183,17 @@ header {
 
     .open {
       transform: rotate(45deg);
+      background: $sunflower-yellow;
     }
 
     .open::before {
       opacity: 0;
+      background: $sunflower-yellow;
     }
 
     .open::after {
       transform: rotate(-90deg) translate(3px);
+      background: $sunflower-yellow;
     }
   }
 }
