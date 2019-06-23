@@ -51,7 +51,7 @@ export default {
                 <h3>Here's a little information about me</h3>
                 <p>{{ card.info }}</p>
                 <p>If You are reading this, it's probably because my species is in danger of extinction, didn't you know? all bees are in danger! and without bees flowers can't exist! (neither humans), wanna know more?</p>
-                <nuxt-link to="/Resources" class="btn-help">
+                <nuxt-link to="/about" class="btn-help">
                   Learn More
                 </nuxt-link>
               </div>

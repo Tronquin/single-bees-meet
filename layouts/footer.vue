@@ -15,8 +15,8 @@ export default {
 <style lang="scss">
 @import "~/assets/scss/main.scss";
 footer {
-  background: $sunflower-black;
-  color: $sunflower-yellow;
+  background: #ffaf37;
+  color: $sunflower-black;
   display: flex;
   justify-content: center;
   align-items: center;
