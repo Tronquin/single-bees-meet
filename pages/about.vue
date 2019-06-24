@@ -5,12 +5,12 @@
       <div class="wrapper-about-container">
         <div class="row">
           <h2 class="headline-1">
-            We are in danger
+            We Need Help
           </h2>
-          <img src="../static/img/gas.png" alt="danger" class="danger">
+          <img v-lazy="`img/${gas}`" alt="danger" class="danger">
         </div>
         <div class="row">
-          <img src="../static/img/wory-bee.png" alt="worry" class="worry">
+          <img v-lazy="`img/${worry}`" alt="worry" class="worry">
           <p>
             Bee numbers are falling across the world. There isn’t one single cause to blame but there are three significant threats that stand out: pesticides, the varroa mite and habitat loss.
           </p>
@@ -21,7 +21,7 @@
               Why are why in danger?
             </h2>
             <div v-for="(reason, index) in reasons" :key="index" class="row reasons" :class="`reason-${index+1}`">
-              <img :src="`img/${reason.icon}`" :alt="`reason-${index+1}-icon`" class="reason-icon-desktop">
+              <img v-lazy="`img/${reason.icon}`" :alt="`reason-${index+1}-icon`" class="reason-icon-desktop">
               <div class="column reason-text">
                 <div class="row">
                   <h3 :class="`reason-${index+1}-name`">
@@ -53,7 +53,9 @@ export default {
   },
   data() {
     return {
-      reasons: []
+      reasons: [],
+      gas: 'gas.png',
+      worry: 'wory-bee.png'
     }
   },
   created() {
