@@ -88,10 +88,9 @@ export default {
 
   .modal {
     background: $sunflower-yellow-dark;
-    border-radius: 25px;
     box-shadow: 2px 2px 20px 1px;
     overflow: hidden;
-    width: 80%;
+    width: 100%;
     height: 600px;
     position: relative;
     &-header {
@@ -173,7 +172,7 @@ export default {
 
   .modal-body {
     position: relative;
-    padding: 1.5em;
+    padding: 0.5em;
   }
 
   .btn-close {
@@ -197,7 +196,7 @@ export default {
 
   @include mq-tablet {
     .modal {
-      height: 90%;
+      height: 100%;
             overflow-y: scroll;
                 &-header {
       justify-content: flex-end;
