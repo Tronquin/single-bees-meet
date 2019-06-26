@@ -1,60 +1,58 @@
 <template>
-  <div>
+  <div class="wrapper">
     <Navbar />
-    <div class="wrapper">
-      <div class="wrapper-resources">
-        <div class="row">
-          <div class="column">
-            <h2 class="headline-1">
-              YOU CAN HELP US
-            </h2>
-            <img v-lazy="`img/${bee}`" alt="resources-bee">
+    <div class="wrapper-resources">
+      <div class="row">
+        <div class="column">
+          <h2 class="headline-1">
+            YOU CAN HELP US
+          </h2>
+          <img v-lazy="`img/${bee}`" alt="resources-bee" class="resources-bee">
+        </div>
+        <div class="column">
+          <h3>BEE INFORMED</h3>
+          <p>It’s no secret these days that bees are extremely important. In addition to being everyone’s favorite picnic guests, bees function as some of the great pollinators in the world. According to the U.S. Department of Agriculture, they feed 80 percent of the crops that we eat including broccoli, apples, asparagus, blueberries and coffee to name a few. They also pollinate alfalfa, a grass that feeds beef and dairy cows. </p>
+          <div class="newspaper">
+            <img v-lazy="`img/${news}`" alt="newspaper">
           </div>
-          <div class="column">
-            <h3>BEE INFORMED</h3>
-            <p>It’s no secret these days that bees are extremely important. In addition to being everyone’s favorite picnic guests, bees function as some of the great pollinators in the world. According to the U.S. Department of Agriculture, they feed 80 percent of the crops that we eat including broccoli, apples, asparagus, blueberries and coffee to name a few. They also pollinate alfalfa, a grass that feeds beef and dairy cows. </p>
-            <div class="newspaper">
-              <img v-lazy="`img/${news}`" alt="newspaper">
-            </div>
-            <h2 class="headline-2">
-              How?
-            </h2>
+          <h2 class="headline-2">
+            How?
+          </h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="column">
+          <div v-for="(method, index) in methods" :key="index" class="methods" :class="`method-${index+1}`">
+            <h4>{{ method.name }}</h4>
+            <img v-lazy="`img/${method.img}`" :alt="`method-img-${index+1}`">
+            <p>{{ method.description }}</p>
           </div>
         </div>
-        <div class="row">
-          <div class="column">
-            <div v-for="(method, index) in methods" :key="index" class="methods" :class="`method-${index+1}`">
-              <h4>{{ method.name }}</h4>
-              <img v-lazy="`img/${method.img}`" :alt="`method-img-${index+1}`">
-              <p>{{ method.description }}</p>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="column">
-            <div class="row">
-              <div class="column">
-                <h2 class="headline-2" style="text-align: end;">
-                  Wanna Help Us Even More?
-                </h2>
-                <h3 class="headline-3">
-                  Donate
-                </h3>
-                <div v-for="(donate, index) in donations" :key="index" class="row donations" :class="`donate-${index+1}`">
-                  <img v-lazy="`img/${donate.icon}`" :alt="`donate-${index+1}-icon`" class="donate-icon-desktop">
-                  <div class="column donate-text">
-                    <div class="row">
-                      <h3 :class="`donate-${index+1}-name`">
-                        {{ donate.name }}
-                      </h3>
-                      <img :src="`img/${donate.icon}`" :alt="`donate-${index+1}-icon`" class="donate-icon-mobile">
-                    </div>
-                    <p :class="`donate-${index+1}-description`">
-                      {{ donate.description }}
-                    </p>
+      </div>
+      <div class="row">
+        <div class="column">
+          <div class="row">
+            <div class="column">
+              <h2 class="headline-2" style="text-align: end;">
+                Wanna Help Us Even More?
+              </h2>
+              <h3 class="headline-3">
+                Donate
+              </h3>
+              <div v-for="(donate, index) in donations" :key="index" class="row donations" :class="`donate-${index+1}`">
+                <img v-lazy="`img/${donate.icon}`" :alt="`donate-${index+1}-icon`" class="donate-icon-desktop">
+                <div class="column donate-text">
+                  <div class="row">
+                    <h3 :class="`donate-${index+1}-name`">
+                      {{ donate.name }}
+                    </h3>
+                    <img :src="`img/${donate.icon}`" :alt="`donate-${index+1}-icon`" class="donate-icon-mobile">
                   </div>
-                  <a :class="`donate-${index+1}-button`" :href="donate.url"><span>{{ donate.button }}</span></a>
+                  <p :class="`donate-${index+1}-description`">
+                    {{ donate.description }}
+                  </p>
                 </div>
+                <a :class="`donate-${index+1}-button`" :href="donate.url"><span>{{ donate.button }}</span></a>
               </div>
             </div>
           </div>
@@ -148,6 +146,9 @@ export default {
 @import "~/assets/scss/main.scss";
 
 .wrapper {
+      max-width: unset;
+    padding: unset;
+    margin: unset;
   &-resources {
     margin: 2em 0;
     h2 {
@@ -265,6 +266,71 @@ export default {
           }
         }
       }
+  }
+}
+
+@include mq-tablet {
+  .wrapper {
+    &-resources {
+      .row {
+        flex-flow: column wrap;
+      }
+
+      .headline-1 {
+        text-align: center;
+        margin-right: 0;
+      }
+
+      .resources-bee {
+        display: none;
+      }
+
+      h3 {
+        display: none;
+      }
+
+      p {
+        text-align: center;
+      }
+
+      .headline-2 {
+        text-align: center !important;
+        margin-left: 0;
+      }
+
+      .donations {
+        a {
+          margin-top: 2.5em;
+          padding: 1.5em 4em !important;
+        }
+      }
+    }
+  }
+}
+
+@include mq-mobile-small {
+  .wrapper {
+    &-resources {
+      .headline-1, .headline-2 {
+        font-size: 4em;
+      }
+      .methods {
+        p {
+          margin: 0;
+        }
+      }
+      .newspaper {
+        img {
+          width: 100%;
+        }
+      }
+
+      .donations {
+        p {
+          margin: 0;
+        }
+      }
+    }
   }
 }
 
