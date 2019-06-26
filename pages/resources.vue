@@ -150,7 +150,7 @@ export default {
     padding: unset;
     margin: unset;
   &-resources {
-    margin: 2em 0;
+    margin: 2em 1em;
     h2 {
       font-family: 'PlayfairDisplayBold';
       text-transform: uppercase;
